@@ -37,7 +37,7 @@ pipeline {
               -Dsonar.projectName="Baatein Backend UAT" \
               -Dsonar.sources=. \
               -Dsonar.exclusions=node_modules/**,coverage/** \
-              -Dsonar.host.url=http://13.201.43.26:9000 \
+              -Dsonar.host.url=http://13.205.111.186:9000 \
               -Dsonar.login=$SONAR_TOKEN
             '''
         }

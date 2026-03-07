@@ -31,18 +31,18 @@ pipeline {
     stage('🔍 SonarQube Analysis') {
       steps {
         withSonarQubeEnv('SonarQube') {
-          sh """
+            sh '''
             sonar-scanner \
               -Dsonar.projectKey=baatein-backend-uat \
               -Dsonar.projectName="Baatein Backend UAT" \
               -Dsonar.sources=. \
               -Dsonar.exclusions=node_modules/**,coverage/** \
               -Dsonar.host.url=http://13.201.43.26:9000 \
-              -Dsonar.login=${sqa_cfb0a999052bc9a7fd88ed72259b1e1996a0df7c}
-          """
+              -Dsonar.login=$SONAR_TOKEN
+            '''
         }
-      }
     }
+}
 
     stage('✅ Quality Gate') {
       steps {
